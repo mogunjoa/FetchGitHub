@@ -35,17 +35,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        binding.searchRepo.setOnClickListener {
-//            githubService.listRepos("square").enqueue(object : Callback<List<Repo>> {
-//                override fun onResponse(call: Call<List<Repo>>, response: Response<List<Repo>>) {
-//                    Log.e("[RES:::]", "SEARCH_REPO:::${response.body().toString()}")
-//                }
-//
-//                override fun onFailure(call: Call<List<Repo>>, response: Throwable) {
-//                    Log.e("[Fail:::]", response.toString())
-//                }
-//            })
-//        }
+
 
         userAdapter = UserAdapter(onClick = {
             val intent = Intent(this, RepoActivity::class.java)
