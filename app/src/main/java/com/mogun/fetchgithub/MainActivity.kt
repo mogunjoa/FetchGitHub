@@ -16,17 +16,11 @@ import com.mogun.fetchgithub.network.GithubService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : ComponentActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var userAdapter: UserAdapter
-    private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("https://api.github.com/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
 
     private val handler = Handler(Looper.getMainLooper())
     private var searchFor: String = ""
@@ -60,7 +54,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun searchUser() {
-        val githubService = retrofit.create(GithubService::class.java)
+        val githubService = ApiClient.retrofit.create(GithubService::class.java)
 
         githubService.searchUsers(searchFor).enqueue(object : Callback<UserDto> {
             override fun onResponse(call: Call<UserDto>, response: Response<UserDto>) {
