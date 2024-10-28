@@ -61,6 +61,10 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.material)
 
+    // retrofit, gson
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
